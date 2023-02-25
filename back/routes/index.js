@@ -13,4 +13,9 @@ module.exports = [
     path: "/movements",
     handler: movements.getAllMovements,
   },
+  {
+    method: "POST",
+    path: "/movements",
+    handler: movements.insertMovement,
+  },
 ];

@@ -13,4 +13,18 @@ function getAllMovements(request, h) {
   }
 }
 
-module.exports = { getAllMovements };
+function insertMovement(request, h) {
+  try {
+    const data = fs.readFileSync(dbFile);
+    const db = JSON.parse(data);
+    const newId = db.movements.length + 1;
+    db.movements.push({ id: newId });
+    fs.writeFileSync(dbFile, JSON.stringify(db));
+    return db.movements;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+module.exports = { getAllMovements, insertMovement };
