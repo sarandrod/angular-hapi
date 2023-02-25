@@ -1,3 +1,5 @@
+const movements = require("../controller/movements");
+
 module.exports = [
   {
     method: "GET",
@@ -9,8 +11,6 @@ module.exports = [
   {
     method: "GET",
     path: "/movements",
-    handler: (request, h) => {
-      return [{ id: 1 }, { id: 2 }, { id: 3 }];
-    },
+    handler: movements.getAllMovements,
   },
 ];
